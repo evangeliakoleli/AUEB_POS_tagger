@@ -1,7 +1,7 @@
 AUEB_POS_tagger
 ===============
 
-This file accompanies the software of AUEB’s Greek part-of-speech (POS) tagger 
+This file accompanies the software of AUEBs Greek part-of-speech (POS) tagger 
 version 2 alpha. Unlike the k-NN-based version 1.0, which is still available 
 (see http://nlp.cs.aueb.gr/software/), this version uses Stanford's Maximum 
 Entropy Classifier (see http://nlp.stanford.edu/software/classifier.shtml) 
@@ -71,7 +71,7 @@ DESCRIPTION:
 A static method that classifies (tags) every token (word, symbol etc.) 
 of a text file (in UTF-8 encoding) using the coarse tagset. All the 
 tokens of the file must be separated by whitespace characters (e.g. 
-" äõíÜìåùí , äÞëùóå êÜôïéêïò ôçò ðüëçò óôï ðñáêôïñåßï Reuters . ").
+" δυνάμεων , δήλωσε κάτοικος της πόλης στο πρακτορείο Reuters . ").
 
 INPUT: String - the location of the text file.
 OUTPUT: List <WordWithCategory> - a list of every token of the file with 
@@ -97,61 +97,61 @@ with its guessed category (tag).
 		
 EXAMPLE: 
 List<WordWithCategory> list;
-list = SmallSetFunctions.smallSetClassifyString(" ÐñùôïöáíÞò 
-   åêôñï÷éáóìüò ôïõ ðñïûðïëïãéóìïý êáé « ìáýñç » ôñýðá Üíù ôïõ 1 
-   äéó. . Ï õðïõñãüò Ïéêïíïìéêþí ðáñáäÝ÷åôáé üôé õðÜñ÷åé óôÝñçóç 
-   åóüäùí êáé ðñïåéäïðïéåß üôé åÜí ôï ðñüâëçìá äå ëõèåß ìÝóá óôïõò 
-   åðüìåíïõò ìÞíåò , ôüôå ç êõâÝñíçóç èá ðñï÷ùñÞóåé óôç ëÞøç íÝùí 
-   ìÝôñùí . ");
+list = SmallSetFunctions.smallSetClassifyString(" Πρωτοφανής 
+   εκτροχιασμός του προϋπολογισμού και « μαύρη » τρύπα άνω του 1 
+   δισ. . Ο υπουργός Οικονομικών παραδέχεται ότι υπάρχει στέρηση 
+   εσόδων και προειδοποιεί ότι εάν το πρόβλημα δε λυθεί μέσα στους 
+   επόμενους μήνες , τότε η κυβέρνηση θα προχωρήσει στη λήψη νέων 
+   μέτρων . ");
 for (int i=0;i<list.size();i++){
    System.out.println(list.get(i).toString());
 }
 
 EXAMPLE OUTPUT:
-ÐñùôïöáíÞò noun
-åêôñï÷éáóìüò noun
-ôïõ article
-ðñïûðïëïãéóìïý adjective
-êáé conjunction
+Πρωτοφανής noun
+εκτροχιασμός noun
+του article
+προϋπολογισμού adjective
+και conjunction
 « punctuation
-ìáýñç adjective
+μαύρη adjective
 » punctuation
-ôñýðá adjective
-Üíù adverb
-ôïõ article
+τρύπα adjective
+άνω adverb
+του article
 1 numeral
-äéó. other
+δισ. other
 . punctuation
-Ï article
-õðïõñãüò noun
-Ïéêïíïìéêþí noun
-ðáñáäÝ÷åôáé verb
-üôé conjunction
-õðÜñ÷åé verb
-óôÝñçóç noun
-åóüäùí adjective
-êáé conjunction
-ðñïåéäïðïéåß verb
-üôé conjunction
-åÜí other
-ôï article
-ðñüâëçìá noun
-äå particle
-ëõèåß verb
-ìÝóá adverb
-óôïõò article
-åðüìåíïõò adjective
-ìÞíåò noun
+Ο article
+υπουργός noun
+Οικονομικών noun
+παραδέχεται verb
+ότι conjunction
+υπάρχει verb
+στέρηση noun
+εσόδων adjective
+και conjunction
+προειδοποιεί verb
+ότι conjunction
+εάν other
+το article
+πρόβλημα noun
+δε particle
+λυθεί verb
+μέσα adverb
+στους article
+επόμενους adjective
+μήνες noun
 , punctuation
-ôüôå adverb
-ç article
-êõâÝñíçóç noun
-èá particle
-ðñï÷ùñÞóåé verb
-óôç article
-ëÞøç noun
-íÝùí adjective
-ìÝôñùí noun
+τότε adverb
+η article
+κυβέρνηση noun
+θα particle
+προχωρήσει verb
+στη article
+λήψη noun
+νέων adjective
+μέτρων noun
 . punctuation
     
 1.3 Method smallSetEvaluateFile(String):
@@ -216,45 +216,45 @@ with its guessed category (tag).
 		
 EXAMPLE: 
 List<WordWithCategory> list;
-list = BigSetFunctions.bigSetClassifyString(" ÓôñáôéùôéêÝò 
-   äõíÜìåéò ðéóôÝò óôïí óõíôáãìáôÜñ÷ç ÊáíôÜöé âïìâáñäßæïõí ôçí 
-   ðüëç ÌéæïõñÜôá ôçò äõôéêÞò Ëéâýçò , ðïõ ôåëåß õðü ôïí Ýëåã÷ï 
-   ôùí áíôéêáèåóôùôéêþí äõíÜìåùí , äÞëùóå êÜôïéêïò ôçò ðüëçò óôï 
-   ðñáêôïñåßï Reuters . ");
+list = BigSetFunctions.bigSetClassifyString(" Στρατιωτικές 
+   δυνάμεις πιστές στον συνταγματάρχη Καντάφι βομβαρδίζουν την 
+   πόλη Μιζουράτα της δυτικής Λιβύης , που τελεί υπό τον έλεγχο 
+   των αντικαθεστωτικών δυνάμεων , δήλωσε κάτοικος της πόλης στο 
+   πρακτορείο Reuters . ");
 for (int i=0;i<list.size();i++){
    System.out.println(list.get(i).toString());
 }
 			
 EXAMPLE OUTPUT:
-ÓôñáôéùôéêÝò adjective/nominative/feminine/plural/--
-äõíÜìåéò noun/accusative/feminine/plural/--
-ðéóôÝò adjective/accusative/feminine/plural/--
-óôïí article/prepositional/accusative/masculine/singular
-óõíôáãìáôÜñ÷ç noun/accusative/masculine/singular/--
-ÊáíôÜöé noun/accusative/neuter/singular/--
-âïìâáñäßæïõí verb/--/active/plural/present
-ôçí article/definite/accusative/feminine/singular
-ðüëç noun/accusative/feminine/singular/--
-ÌéæïõñÜôá noun/accusative/feminine/singular/--
-ôçò article/definite/genitive/feminine/singular
-äõôéêÞò adjective/genitive/feminine/singular/--
-Ëéâýçò noun/genitive/feminine/singular/--
+Στρατιωτικές adjective/nominative/feminine/plural/--
+δυνάμεις noun/accusative/feminine/plural/--
+πιστές adjective/accusative/feminine/plural/--
+στον article/prepositional/accusative/masculine/singular
+συνταγματάρχη noun/accusative/masculine/singular/--
+Καντάφι noun/accusative/neuter/singular/--
+βομβαρδίζουν verb/--/active/plural/present
+την article/definite/accusative/feminine/singular
+πόλη noun/accusative/feminine/singular/--
+Μιζουράτα noun/accusative/feminine/singular/--
+της article/definite/genitive/feminine/singular
+δυτικής adjective/genitive/feminine/singular/--
+Λιβύης noun/genitive/feminine/singular/--
 , punctuation/--/--/--/--
-ðïõ pronoun/inflectionless/--/--/--
-ôåëåß verb/--/active/singular/present
-õðü preposition/--/--/--/--
-ôïí article/definite/accusative/masculine/singular
-Ýëåã÷ï noun/accusative/masculine/singular/--
-ôùí article/definite/genitive/neuter/plural
-áíôéêáèåóôùôéêþí adjective/genitive/feminine/plural/--
-äõíÜìåùí noun/genitive/feminine/plural/--
+που pronoun/inflectionless/--/--/--
+τελεί verb/--/active/singular/present
+υπό preposition/--/--/--/--
+τον article/definite/accusative/masculine/singular
+έλεγχο noun/accusative/masculine/singular/--
+των article/definite/genitive/neuter/plural
+αντικαθεστωτικών adjective/genitive/feminine/plural/--
+δυνάμεων noun/genitive/feminine/plural/--
 , punctuation/--/--/--/--
-äÞëùóå verb/--/active/singular/past
-êÜôïéêïò noun/nominative/masculine/singular/--
-ôçò article/definite/genitive/feminine/singular
-ðüëçò noun/genitive/feminine/singular/--
-óôï article/prepositional/accusative/neuter/singular
-ðñáêôïñåßï other/foreign_word/--/--/--
+δήλωσε verb/--/active/singular/past
+κάτοικος noun/nominative/masculine/singular/--
+της article/definite/genitive/feminine/singular
+πόλης noun/genitive/feminine/singular/--
+στο article/prepositional/accusative/neuter/singular
+πρακτορείο other/foreign_word/--/--/--
 Reuters other/foreign_word/--/--/--
 . punctuation/--/--/--/--
 			
@@ -321,7 +321,7 @@ INPUT: String - the word (token) to be stored in the pair.
 		
 EXAMPLE:
 WordWithCategory wc = new WordWithCategory();
-wc.setWord("êáôÜóôáóç");
+wc.setWord("κατάσταση");
 		
 3.4 Method setCategory(String):
 
