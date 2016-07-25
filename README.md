@@ -1,7 +1,7 @@
 AUEB_POS_tagger
 ===============
 
-This file accompanies the software of AUEBs Greek part-of-speech (POS) tagger 
+This file accompanies the software of AUEB's Greek part-of-speech (POS) tagger 
 version 2 alpha. Unlike the k-NN-based version 1.0, which is still available 
 (see http://nlp.cs.aueb.gr/software/), this version uses Stanford's Maximum 
 Entropy Classifier (see http://nlp.stanford.edu/software/classifier.shtml) 
@@ -73,16 +73,18 @@ of a text file (in UTF-8 encoding) using the coarse tagset. All the
 tokens of the file must be separated by whitespace characters (e.g. 
 " δυνάμεων , δήλωσε κάτοικος της πόλης στο πρακτορείο Reuters . ").
 
-INPUT: String - the location of the text file.
-OUTPUT: List <WordWithCategory> - a list of every token of the file with 
+INPUT: `String` - the location of the text file.
+OUTPUT: `List <WordWithCategory>` - a list of every token of the file with 
 its guessed category (tag). 
 		
 EXAMPLE:
+```
 List<WordWithCategory> list;
 list = SmallSetFunctions.smallSetClassifyFile("my_file.txt");
 for (int i=0;i<list.size();i++){
    System.out.println(list.get(i).toString());
 }
+```
 		    
 1.2 Method smallSetClassifyString(String):
 		
@@ -91,11 +93,12 @@ A static method that classifies (tags) every token of a string using the
 coarse tagset. All the tokens of the string must be separated by 
 whitespace characters.
 
-INPUT: String - the string containing the tokens.
-OUTPUT: List <WordWithCategory> - a list of every token of the string 
+INPUT: `String` - the string containing the tokens.
+OUTPUT: `List <WordWithCategory>` - a list of every token of the string 
 with its guessed category (tag). 
 		
-EXAMPLE: 
+EXAMPLE:
+```
 List<WordWithCategory> list;
 list = SmallSetFunctions.smallSetClassifyString(" Πρωτοφανής 
    εκτροχιασμός του προϋπολογισμού και « μαύρη » τρύπα άνω του 1 
@@ -106,6 +109,7 @@ list = SmallSetFunctions.smallSetClassifyString(" Πρωτοφανής
 for (int i=0;i<list.size();i++){
    System.out.println(list.get(i).toString());
 }
+```
 
 EXAMPLE OUTPUT:
 Πρωτοφανής noun
@@ -163,11 +167,13 @@ encoding) containing a sequence of tokens and their correct coarse categories
 contain the token followed by the correct tag, separated by a space, as in 
 the example output of the previous method. 
 
-INPUT: String - the location of the file.
-OUTPUT: double - the tagger's accuracy on the tokens of the input file. 
+INPUT: `String` - the location of the file.
+OUTPUT: `double` - the tagger's accuracy on the tokens of the input file. 
 
 EXAMPLE:
+```
 System.out.println(BigSetFunctions.bigSetEvaluateFile("my_test_file.txt"));
+```
 					
 1.4 Method smallSetTrainOtherClassifier(String):
 		
@@ -176,10 +182,12 @@ A static method that trains the tagger on a file (in UTF-8 encoding)
 containing a sequence of tokens and their correct coarse categories (tags). 
 The file must be in the same format as the example output of method 1.2.
 
-INPUT: String - the location of the file.
+INPUT: `String` - the location of the file.
 
 EXAMPLE:
+```
 SmallSetFunctions.smallSetTrainOtherClassifier("my_train_file.txt");
+```
 			
 					
 2. Public methods of class gr.aueb.cs.nlp.postagger.BigSetFunctions:
@@ -192,16 +200,18 @@ A static method that classifies (tags) every token of a text file
 (in UTF-8 encoding) using the fine tagset. All the tokens of the 
 file must be separated by whitespace characters.
 
-INPUT: String - the location of the text file.
-OUTPUT: List <WordWithCategory> - a list of every token of the 
+INPUT: `String` - the location of the text file.
+OUTPUT: `List <WordWithCategory>` - a list of every token of the 
 file with its guessed category (tag).
 		
 EXAMPLE: 
+```
 List<WordWithCategory> list;
 list = BigSetFunctions.bigSetClassifyFile("my_file.txt");
 for (int i=0;i<list.size();i++){
    System.out.println(list.get(i).toString());
 }
+```
     
 2.2 Method bigSetClassifyString(String):
 
@@ -210,11 +220,12 @@ A static method that classifies (tags) every token of a string using the
 fine tagset. All the tokens of the string must be separated by 
 whitespace characters.
 
-INPUT: String - the string containing the tokens.
-OUTPUT: List <WordWithCategory> - a list of every token of the string 
+INPUT: `String` - the string containing the tokens.
+OUTPUT: `List <WordWithCategory>` - a list of every token of the string 
 with its guessed category (tag). 
 		
 EXAMPLE: 
+```
 List<WordWithCategory> list;
 list = BigSetFunctions.bigSetClassifyString(" Στρατιωτικές 
    δυνάμεις πιστές στον συνταγματάρχη Καντάφι βομβαρδίζουν την 
@@ -224,6 +235,7 @@ list = BigSetFunctions.bigSetClassifyString(" Στρατιωτικές
 for (int i=0;i<list.size();i++){
    System.out.println(list.get(i).toString());
 }
+```
 			
 EXAMPLE OUTPUT:
 Στρατιωτικές adjective/nominative/feminine/plural/--
@@ -267,11 +279,13 @@ encoding) containing a sequence of tokens and their correct fine categories
 contain the token followed by the correct tag, separated by a space, as 
 in the example output of the previous method. 
 
-INPUT: String - the location of the file.
-OUTPUT: double - the tagger's accuracy on the tokens of the input file. 
+INPUT: `String` - the location of the file.
+OUTPUT: `double` - the tagger's accuracy on the tokens of the input file. 
 
 EXAMPLE:
+```
 System.out.println(BigSetFunctions.bigSetEvaluateFile("my_test_file.txt"));
+```
 			
 2.4 Method bigSetTrainOtherClassifier(String):
 
@@ -280,9 +294,12 @@ A static method that trains the tagger on a file (in UTF-8 encoding)
 containing a sequence of tokens and their correct fine categories (tags). 
 The file must be in the same format as the example output of method 2.2.
 
-INPUT: String - the location of the file.
+INPUT: `String` - the location of the file.
+
 EXAMPLE:
+```
 BigSetFunctions.bigSetTrainOtherClassifier("my_train_fle.txt");
+```
 
 			
 3. Public methods of class gr.aueb.cs.nlp.postagger.WordWithCategory:
@@ -293,46 +310,54 @@ BigSetFunctions.bigSetTrainOtherClassifier("my_train_fle.txt");
 DESCRIPTION:
 A static method that returns the category (tag) of a WordWithCategory pair.
 			
-OUTPUT: String - the category (tag) of the pair.  
+OUTPUT: `String` - the category (tag) of the pair.  
 		
 EXAMPLE:
+```
 WordWithCategory wc = new WordWithCategory();
 ....
 wc.getCategory();
+```
 
 3.2 Method getWord():
 
 DESCRIPTION:
 A static method that returns the word (token) of a WordWithCategory pair.
 			
-OUTPUT: String - the word (token) of the pair. 
+OUTPUT: `String` - the word (token) of the pair. 
 		
 EXAMPLE:
+```
 WordWithCategory wc = new WordWithCategory();
 ....
 wc.getWord();
+```
 			
 3.3 Method setWord(String):
 
 DESCRIPTION:
 A static method that sets the word (token) of a WordWithCategory pair.
 
-INPUT: String - the word (token) to be stored in the pair.
+INPUT: `String` - the word (token) to be stored in the pair.
 		
 EXAMPLE:
+```
 WordWithCategory wc = new WordWithCategory();
 wc.setWord("κατάσταση");
+```
 		
 3.4 Method setCategory(String):
 
 DESCRIPTION:
 A static method that sets the category (tag) of a WordWithCategory pair.
 
-INPUT: String - the category (tag) to be stored in the pair. 
+INPUT: `String` - the category (tag) to be stored in the pair. 
 		
 EXAMPLE:
+```
 WordWithCategory wc = new WordWithCategory();
 wc.setCategory("verb/--/--/--/--");
+```
 	
 
 Using the tagger from the command line:
@@ -349,5 +374,3 @@ UTF-8 encoding).
 		
 Note: The system generates the file properties_test.txt, which is an 
 intermediate output file, used for debugging purposes.
-
-=== END OF FILE ===
